@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class interpreter {
-	public static ArrayList<recipe> retrieveRecipes(String input) {
-		ArrayList<recipe> output = new ArrayList<>();
+	public static ArrayList<Recipe> retrieveRecipes(String input) {
+		ArrayList<Recipe> output = new ArrayList<>();
 		for (String entry : input.split(";")) {
 			//result
 			Item result = retrieveItem(entry.split("\\=")[0]);
@@ -12,7 +12,7 @@ public class interpreter {
 				ingredients.add(retrieveItem(ingredient));
 			}
 			//put into list
-			output.add(new recipe(result, ingredients));
+			output.add(new Recipe(result, ingredients));
 		}
 		return output;
 	}

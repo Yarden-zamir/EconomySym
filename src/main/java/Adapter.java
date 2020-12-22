@@ -10,13 +10,17 @@ public class Adapter {
 				"<minecraft:milk>;" +
 				"<minecraft:rose> * 30;";
 		String recipes = "<minecraft:beef>*10 = <minecraft:wheat> * 2,<minecraft:iron_ingot> * 3;" +
-				"<minecraft:leather>*10 = <minecraft:wheat>,<minecraft:pumpkin> * 2,<minecraft:iron_ingot>;" +
+				"<minecraft:leather>*10 = <minecraft:wheat>,<minecraft:pumpkin> * 2,<minecraft:iron_ingot>*2;" +
 				"<minecraft:milk>*5=<minecraft:wheat>*3;";
 		Company Milqe = new Company(
 				interpreter.retrieveItems(sources),
 				interpreter.retrieveRecipes(recipes),
 				"Milqe inq");
 		Milqe.calcValues();
+		//trade phase
+		Milqe.craftingPhase();
+		System.out.println(Milqe.values);
+
 	}
 
 }
