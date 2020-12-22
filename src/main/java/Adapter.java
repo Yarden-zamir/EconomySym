@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 
 public class Adapter {
+	static int tradeScale = 32;
 	public static void main(String[] args) {
 		Company Milqe;
-		String sources = "<minecraft:iron_ore> * 4;" +
+		String sources = "<minecraft:iron_ore> * 40;" +
 				"<minecraft:beef>;" +
 				"<minecraft:leather>;" +
 				"<minecraft:milk>;" +
-				"<minecraft:rose> * 3;";
+				"<minecraft:rose> * 30;";
 		String recipes = "<minecraft:beef>*10 = <minecraft:wheat> * 2,<minecraft:iron_ingot> * 3;" +
 				"<minecraft:leather>*10 = <minecraft:wheat>,<minecraft:pumpkin> * 2,<minecraft:iron_ingot>;" +
 				"<minecraft:milk>*5=<minecraft:wheat>*3;";
@@ -54,7 +55,7 @@ class interpreter {
 		if (item.contains("*")) {
 			return new item(item.split("\\*")[0], Integer.parseInt(item.split("\\*")[1].trim()));
 		} else {
-			return new item(item, 1);
+			return new item(item, 10);
 		}
 	}
 
