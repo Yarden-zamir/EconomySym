@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Adapter {
 	static int tradeScale = 32;
+
 	public static void main(String[] args) {
-		Company Milqe;
 		String sources = "<minecraft:iron_ore> * 40;" +
 				"<minecraft:beef>;" +
 				"<minecraft:leather>;" +
@@ -12,8 +12,10 @@ public class Adapter {
 		String recipes = "<minecraft:beef>*10 = <minecraft:wheat> * 2,<minecraft:iron_ingot> * 3;" +
 				"<minecraft:leather>*10 = <minecraft:wheat>,<minecraft:pumpkin> * 2,<minecraft:iron_ingot>;" +
 				"<minecraft:milk>*5=<minecraft:wheat>*3;";
-		interpreter.retrieveItems(sources);
-		interpreter.retrieveRecipes(recipes);
+		Company Milqe = new Company(
+				interpreter.retrieveItems(sources),
+				interpreter.retrieveRecipes(recipes),
+				"Milqe inq");
 	}
 
 }
@@ -32,6 +34,10 @@ class Company {
 	public Company(String name) {
 		this.name = name;
 	}
+
+	public ArrayList<item> calcValues(){
+		ArrayList<item> values;
+	}
 }
 
 class interpreter {
@@ -42,7 +48,7 @@ class interpreter {
 			item result = retrieveItem(entry.split("\\=")[0]);
 			//ingredients
 			ArrayList<item> ingredients = new ArrayList<>();
-			for (String ingredient:entry.split("\\=")[1].split(",")){
+			for (String ingredient : entry.split("\\=")[1].split(",")) {
 				ingredients.add(retrieveItem(ingredient));
 			}
 			//put into list
